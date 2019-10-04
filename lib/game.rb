@@ -1,5 +1,6 @@
 require 'gosu'
 require './rubymari'
+require './screen'
 
 class GameWindow < Gosu::Window
   def initialize(*args)
@@ -7,6 +8,7 @@ class GameWindow < Gosu::Window
 
     self.caption = "Rubymari Damacy"
     @rubymari = Rubymari.new
+    @screen = Screen.new
   end
 
   def update
@@ -14,7 +16,7 @@ class GameWindow < Gosu::Window
   end
 
   def draw
-
+    @screen.draw
   end
 end
 
