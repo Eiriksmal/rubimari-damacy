@@ -1,7 +1,7 @@
 require 'gosu'
-require './rubymari'
-require './screen'
-require './player'
+require_relative 'rubymari'
+require_relative 'screen'
+require_relative 'player'
 
 class GameWindow < Gosu::Window
   def initialize(*args)
