@@ -9,26 +9,26 @@ class Player
     @height = 32
 
     @left_frames = {:left => Gosu::Image.new("../media/boy/redleft.png"),
-                  :left1 => Gosu::Image.new("../media/boy/redleftwalk1.png"),
-                  :left2 => Gosu::Image.new("../media/boy/redleftwalk2.png")}
+                    :left1 => Gosu::Image.new("../media/boy/redleftwalk1.png"),
+                    :left2 => Gosu::Image.new("../media/boy/redleftwalk2.png")}
 
     @right_frames = {:right => Gosu::Image.new("../media/boy/redright.png"),
-                    :right1 => Gosu::Image.new("../media/boy/redrightwalk1.png"),
-                    :right2 => Gosu::Image.new("../media/boy/redrightwalk2.png")}
+                     :right1 => Gosu::Image.new("../media/boy/redrightwalk1.png"),
+                     :right2 => Gosu::Image.new("../media/boy/redrightwalk2.png")}
 
     @up_frames = {:up => Gosu::Image.new("../media/boy/redup.png"),
-                     :up1 => Gosu::Image.new("../media/boy/redupwalk1.png"),
-                     :up2 => Gosu::Image.new("../media/boy/redupwalk2.png")}
+                  :up1 => Gosu::Image.new("../media/boy/redupwalk1.png"),
+                  :up2 => Gosu::Image.new("../media/boy/redupwalk2.png")}
 
     @down_frames = {:down => Gosu::Image.new("../media/boy/reddown.png"),
-                     :down1 => Gosu::Image.new("../media/boy/reddownwalk1.png"),
-                     :down2 => Gosu::Image.new("../media/boy/reddownwalk2.png")}
+                    :down1 => Gosu::Image.new("../media/boy/reddownwalk1.png"),
+                    :down2 => Gosu::Image.new("../media/boy/reddownwalk2.png")}
 
     idle
   end
 
   def draw
-    @image.draw(@x - @width/2, @y - @height/2, 10)
+    @image.draw(@x - @width / 2, @y - @height / 2, 10)
   end
 
   def idle
@@ -36,22 +36,22 @@ class Player
   end
 
   def walk_right
-    @image = walk_right_frames.pop
+    @image = (Gosu.milliseconds / 300 % 2 == 0) ? walk_right_frames[0] : walk_right_frames[1]
     @x += 1
   end
 
   def walk_left
-    @image = walk_left_frames.pop
+    @image = @image = (Gosu.milliseconds / 300 % 2 == 0) ? walk_left_frames[0] : walk_left_frames[1]
     @x -= 1
   end
 
   def walk_up
-    @image = walk_up_frames.pop
+    @image = @image = (Gosu.milliseconds / 300 % 2 == 0) ? walk_up_frames[0] : walk_up_frames[1]
     @y -= 1
   end
 
   def walk_down
-    @image = walk_down_frames.pop
+    @image = @image = (Gosu.milliseconds / 300 % 2 == 0) ? walk_down_frames[0] : walk_down_frames[1]
     @y += 1
   end
 

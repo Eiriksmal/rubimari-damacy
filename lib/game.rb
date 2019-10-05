@@ -15,6 +15,9 @@ class GameWindow < Gosu::Window
   end
 
   def update
+    # draws the idle frame if no other keys are pressed
+    @player.idle
+
     if Gosu.button_down? Gosu::KB_LEFT or Gosu::button_down? Gosu::GP_LEFT
       @player.walk_left
     end
